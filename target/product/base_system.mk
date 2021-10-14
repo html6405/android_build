@@ -211,7 +211,6 @@ PRODUCT_PACKAGES += \
     libvulkan \
     libwilhelm \
     linker \
-    llkd \
     llndk_libs \
     lmkd \
     LocalTransport \
