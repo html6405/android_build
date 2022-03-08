@@ -3840,6 +3840,9 @@ def MakeRecoveryPatch(input_dir, output_sink, recovery_img, boot_img,
   if info_dict is None:
     info_dict = OPTIONS.info_dict
 
+  if info_dict.get("board_no_recovery_patch") == "true":
+    return
+
   full_recovery_image = info_dict.get("full_recovery_image") == "true"
   board_uses_vendorimage = info_dict.get("board_uses_vendorimage") == "true"
 

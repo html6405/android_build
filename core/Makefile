@@ -6097,6 +6097,9 @@ endif
 ifdef BOARD_USES_VENDORIMAGE
 	$(hide) echo "board_uses_vendorimage=true" >> $@
 endif
+ifeq ($(BOARD_NO_RECOVERY_PATCH),true)
+	$(hide) echo "board_no_recovery_patch=true" >> $@
+endif
 ifeq ($(BOARD_AVB_ENABLE),true)
 ifeq ($(BUILDING_VBMETA_IMAGE),true)
 	$(hide) echo "avb_building_vbmeta_image=true" >> $@

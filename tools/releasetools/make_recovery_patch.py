@@ -39,6 +39,9 @@ def main(argv):
 
   OPTIONS.info_dict = common.LoadInfoDict(input_dir)
 
+  if OPTIONS.info_dict.get("board_no_recovery_patch") == "true":
+    return
+
   recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
                                          input_dir, "RECOVERY")
   boot_img = common.GetBootableImage("boot.img", "boot.img",

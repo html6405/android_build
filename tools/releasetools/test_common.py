@@ -1652,6 +1652,19 @@ class InstallRecoveryScriptFormatTest(test_utils.ReleaseToolsTestCase):
     validate_target_files.ValidateInstallRecoveryScript(self._tempdir,
                                                         self._info)
 
+  def test_recovery_patch_disabled(self):
+    # Neither a full recovery image nor a delta may install recovery at boot.
+    for full_image in ("true", "false"):
+      for vendor_image in ("true", "false"):
+        info = dict(self._info, board_no_recovery_patch="true",
+                    full_recovery_image=full_image,
+                    board_uses_vendorimage=vendor_image)
+        writes = []
+        common.MakeRecoveryPatch(self._tempdir,
+                                 lambda name, data: writes.append(name),
+                                 None, None, info)
+        self.assertEqual([], writes)
+
   @test_utils.SkipIfExternalToolsUnavailable()
   def test_recovery_from_boot(self):
     recovery_image = common.File("recovery.img", self.recovery_data)
