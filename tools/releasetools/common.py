@@ -2604,8 +2604,6 @@ def CheckSize(data, target, info_dict):
   else:
     pct = float(size) * 100.0 / limit
     msg = "%s size (%d) is %.2f%% of limit (%d)" % (target, size, pct, limit)
-    if pct >= 99.99:
-      raise ExternalError(msg)
 
     if pct >= 95.0:
       logger.warning("\n  WARNING: %s\n", msg)
