@@ -65,6 +65,8 @@ EOF
     echo $A
 }
 
+export OUT_DIR=/mnt/wwn-0x5002538f4142e6ee-part5/LineageOS_20_out
+
 # Get all the build variables needed by this script in a single call to the build system.
 function build_build_var_cache()
 {
