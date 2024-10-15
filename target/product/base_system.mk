@@ -321,7 +321,7 @@ ifneq ($(PRODUCT_NO_DYNAMIC_SYSTEM_UPDATE),true)
 endif
 
 # Check if the build supports NFC apex or not
-ifeq ($(RELEASE_PACKAGE_NFC_STACK),NfcNci)
+ifneq ($(RELEASE_PACKAGE_NFC_STACK),NfcNci)
     PRODUCT_PACKAGES += \
         framework-nfc \
         NfcNci

@@ -97,7 +97,7 @@ ifeq ($(RELEASE_CRASHRECOVERY_MODULE),true)
 endif
 
 # Check if the build supports NFC apex or not
-ifeq ($(RELEASE_PACKAGE_NFC_STACK),NfcNci)
+ifneq ($(RELEASE_PACKAGE_NFC_STACK),NfcNci)
     PRODUCT_BOOT_JARS += \
         framework-nfc
 else
