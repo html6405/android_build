@@ -179,7 +179,7 @@ android_system_image {
 
         // handheld_product
         "AvatarPicker",
-        "Calendar",
+        "Etar",
         "Contacts",
         "DeskClock",
         "Gallery2",
