@@ -1092,6 +1092,7 @@ system_image_defaults {
 android_system_image {
     name: "aosp_shared_system_image",
     defaults: ["system_image_defaults"],
+    enabled: false,
     dirs: android_rootdirs,
     symlinks: android_symlinks,
     type: "erofs",
