@@ -65,3 +65,5 @@ include build/make/target/board/BoardConfigGsiCommon.mk
 # TODO(b/36764215): remove this setting when the generic system image
 # no longer has QCOM-specific directories under /.
 BOARD_SEPOLICY_DIRS += build/make/target/board/generic_arm64/sepolicy
+
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
