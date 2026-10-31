@@ -1363,7 +1363,7 @@ endif
 # Both of these tags will be removed and replaced with "release-keys"
 # when the target-files is signed in a post-build step.
 ifeq ($(DEFAULT_SYSTEM_DEV_CERTIFICATE),build/make/target/product/security/testkey)
-BUILD_KEYS := test-keys
+BUILD_KEYS := dev-keys
 else ifneq ($(filter vendor/lineage-priv/%,$(DEFAULT_SYSTEM_DEV_CERTIFICATE)),)
 BUILD_KEYS := release-keys
 else
