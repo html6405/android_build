@@ -185,10 +185,13 @@ def WriteFullOTAPackage(input_zip, output_file):
   #    complete script normally
   #    (allow recovery to mark itself finished and reboot)
 
-  recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
-                                         OPTIONS.input_tmp, "RECOVERY")
-  common.CheckSize(recovery_img.data, "recovery.img", target_info)
-  common.ZipWriteStr(output_zip, "recovery.img", recovery_img.data)
+  # Normal OTAs do not need a standalone recovery when restoration is disabled.
+  # Two-step OTAs still flash this image as part of their installation stages.
+  if OPTIONS.two_step or OPTIONS.info_dict.get("board_no_recovery_patch") != "true":
+    recovery_img = common.GetBootableImage("recovery.img", "recovery.img",
+                                           OPTIONS.input_tmp, "RECOVERY")
+    common.CheckSize(recovery_img.data, "recovery.img", target_info)
+    common.ZipWriteStr(output_zip, "recovery.img", recovery_img.data)
   if OPTIONS.two_step:
     if not target_info.get("multistage_support"):
       assert False, "two-step packages not supported by this build"
